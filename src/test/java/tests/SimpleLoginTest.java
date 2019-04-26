@@ -2,13 +2,15 @@ package tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 
 public class SimpleLoginTest extends BaseTest{
 
-  // @Test
+    @Test
     public void testLogin(){
 
         driver.navigate().to("https://spree-vapasi.herokuapp.com");
@@ -20,8 +22,8 @@ public class SimpleLoginTest extends BaseTest{
 
         assertTrue(driver.findElement(By.linkText("My Account")).isDisplayed());
 
-        WebElement myAccountElement = driver.findElement(By.linkText("My Account"));
-        assertEquals("My Account", myAccountElement.getText());
+        /*WebElement myAccountElement = driver.findElement(By.linkText("My Account"));
+        assertEquals("My Account", myAccountElement.getText());*/
 
     }
 

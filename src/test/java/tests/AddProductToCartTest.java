@@ -35,12 +35,8 @@ public class AddProductToCartTest extends BaseTest{
         }*/
 
         assertTrue(itemsInCart.size() == 1);
-
-
-
-
     }
 
 
-    ////*[@id="content"]/div/
+
 }
