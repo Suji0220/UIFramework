@@ -17,12 +17,25 @@ public class SimpleLoginTest extends BaseTest{
         assertTrue(driver.findElement(By.linkText("My Account")).isDisplayed());
     }
     @Test
-    public void testAddToCart()
+    public void testAddToCartAndCheckOut()
     {
         navigateToURL();
         login("spree@example.com","spree123" );
-        selectProduct("Mugs","Ruby on Rails Tote");
+        selectProduct("Mugs","Ruby on Rails Mug");
+        clickAddToCart();
+        clickCheckOut();
+    }
+    @Test
+    public void testDeliveryProcess(){
+        navigateToURL();
+        login("spree@example.com","spree123" );
+        selectProduct("Mugs","Ruby on Rails Mug");
+        clickAddToCart();
+        clickCheckOut();
+    }
 
+    private void clickCheckOut() {
+        driver.findElement(By.id("checkout-link")).click();
     }
 
 
@@ -45,6 +58,11 @@ public class SimpleLoginTest extends BaseTest{
       public void selectProduct(String category, String productSelected){
           driver.findElement(By.linkText(category)).click();
           driver.findElement(By.linkText(productSelected)).click();
+      }
+
+      public void clickAddToCart()
+      {
+          driver.findElement(By.id("add-to-cart-button")).click();
       }
 
 
