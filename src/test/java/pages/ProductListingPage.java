@@ -11,14 +11,21 @@ public class ProductListingPage {
         this.driver = driver;
     }
 
-    public void selectCategory(String category){
+    public ProductDetailsPage selectCategory_Product(String category, String productSelected){
+        driver.findElement(By.linkText(category)).click();
+        driver.findElement(By.linkText(productSelected)).click();
+        return new ProductDetailsPage(driver);
+    }
+
+    /*public void selectCategory(String category){
         driver.findElement(By.linkText(category)).click();
     }
 
     public void selectProduct(String productSelected)
     {
         driver.findElement(By.linkText(productSelected)).click();
-    }
+
+    }*/
 
     public void clickPagination(String pageNavigationLink)
     {

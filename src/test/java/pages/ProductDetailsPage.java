@@ -11,16 +11,18 @@ public class ProductDetailsPage {
         this.driver = driver;
     }
 
-    public void changeQuantity(String quantity)
+    public ProductDetailsPage changeQuantity(String quantity)
     {
 
          WebElement numQuantity  = driver.findElement(By.id("quantity"));
          numQuantity.clear();
          numQuantity.sendKeys(quantity);
+         return new ProductDetailsPage(driver);
 
     }
-    public void clickAddToCart()
+    public ShoppingCartPage clickAddToCart()
     {
         driver.findElement(By.id("add-to-cart-button")).click();
+        return new ShoppingCartPage(driver);
     }
 }

@@ -10,14 +10,16 @@ public class ShoppingCartPage {
         this.driver = driver;
     }
 
-    public void clickUpdate()
+    public ShoppingCartPage clickUpdate()
     {
         driver.findElement(By.id("update-button")).click();
+        return new ShoppingCartPage(driver);
     }
 
-    public void clickCheckOut()
+    public CheckOutPage clickCheckOut()
     {
         driver.findElement(By.id("checkout-link")).click();
+        return new CheckOutPage(driver);
     }
 
     public void deleteProduct(String product)
