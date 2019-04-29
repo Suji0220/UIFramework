@@ -57,7 +57,7 @@ public class SpreeAppTest extends BaseTest{
     @Test
     public void checkOutAsGuestUser(){
         ProductListingPage plp = new ProductListingPage(driver);
-        plp.selectCategory_Product("Mugs","Ruby on Rails Mug").clickAddToCart().clickCheckOut();
+        plp.selectCategory_Product("Bags","Ruby on Rails Bag").clickAddToCart().clickCheckOut();
     }
 
 

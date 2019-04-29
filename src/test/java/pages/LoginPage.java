@@ -12,7 +12,7 @@ public class LoginPage {
 
     public ProductListingPage login(String username, String password)
     {
-        driver.get("https://spree-vapasi.herokuapp.com");
+       // driver.get("https://spree-vapasi.herokuapp.com");
         driver.findElement(By.id("link-to-login")).click();
         driver.findElement(By.id("spree_user_email")).sendKeys(username);
         driver.findElement(By.id("spree_user_password")).sendKeys(password);
