@@ -22,7 +22,7 @@ public class ShoppingCartPage {
 
     public void deleteProduct(String product)
     {
-        //driver.findElement(By.id(product)).findElement()
+        driver.findElement(By.id(product)).findElement(By.xpath("//td[@class='cart-item-delete']")).click();
 
     }
 }

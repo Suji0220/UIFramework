@@ -65,10 +65,12 @@ public class SpreeAppTest extends BaseTest{
         pdp.changeQuantity("4");
         pdp.clickAddToCart();
         ShoppingCartPage cartPage = new ShoppingCartPage(driver);
+        cartPage.deleteProduct("Ruby on Rails Mug");
 
-        assertTrue(driver.findElement(By.name("checkout")).isDisplayed());
+
+        /*assertTrue(driver.findElement(By.name("checkout")).isDisplayed());
         cartPage.clickCheckOut();
-        System.out.println("Success on navigating to the CheckOut Page");
+        System.out.println("Success on navigating to the CheckOut Page");*/
 
     }
 

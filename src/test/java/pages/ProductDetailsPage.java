@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class ProductDetailsPage {
     WebDriver driver;
@@ -12,7 +13,11 @@ public class ProductDetailsPage {
 
     public void changeQuantity(String quantity)
     {
-        driver.findElement(By.id("quantity")).sendKeys(quantity);
+
+         WebElement numQuantity  = driver.findElement(By.id("quantity"));
+         numQuantity.clear();
+         numQuantity.sendKeys(quantity);
+
     }
     public void clickAddToCart()
     {
