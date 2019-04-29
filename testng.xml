@@ -15,7 +15,7 @@
         </groups>-->
 
         <classes>
-            <class name="tests.SimpleLoginTest" />
+            <class name="tests.SpreeAppTest" />
             <class name="tests.AddProductToCartTest" />
 
         </classes>
