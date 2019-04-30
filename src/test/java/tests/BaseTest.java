@@ -24,7 +24,7 @@ public class BaseTest {
    // @AfterMethod(groups={"smoke"})
     public void tearDown()
     {
-        driver.close();
+       driver.close();
         driver.quit();
     }
 

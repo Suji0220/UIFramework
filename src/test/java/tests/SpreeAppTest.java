@@ -3,11 +3,9 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import pages.ProductDetailsPage;
-import pages.ProductListingPage;
-import pages.ShoppingCartPage;
+import pages.*;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -40,7 +38,7 @@ public class SpreeAppTest extends BaseTest{
         LoginPage loginpage = new LoginPage(driver);
         loginpage.login("spree@example.com","spree123").selectCategory_Product
                 ("Mugs","Ruby on Rails Mug" ).clickAddToCart();
-        assertTrue(driver.findElement(By.id("cart-detail")).findElement(By.linkText("Ruby on Rails Bag")).isDisplayed());
+        assertTrue(driver.findElement(By.id("cart-detail")).findElement(By.linkText("Ruby on Rails Mug")).isDisplayed());
         System.out.println("Success on adding product to the Add to Cart Page");
     }
 
@@ -55,18 +53,42 @@ public class SpreeAppTest extends BaseTest{
     }
 
     @Test
-    public void checkOutAsGuestUser(){
+    public void testcheckOutAsGuestUser(){
         ProductListingPage plp = new ProductListingPage(driver);
         plp.selectCategory_Product("Bags","Ruby on Rails Bag").clickAddToCart().clickCheckOut();
     }
 
-
     @Test
-    public void testDeliveryProcess(){
-        LoginPage loginpage = new LoginPage(driver);
-        loginpage.login("spree@example.com","spree123").selectCategory_Product
-                ("Mugs","Ruby on Rails Mug" ).clickAddToCart().clickCheckOut();
+    public void testRegistration()
+    {
+        ProductListingPage plp = new ProductListingPage(driver);
+        plp.selectCategory_Product("Bags","Ruby on Rails Bag").clickAddToCart().clickCheckOut();
+        RegistrationPage regPage = new RegistrationPage(driver);
+        regPage.createNewAccount("abc@gmail.com", "abcdef", "abcdef");
     }
+
+
+
+    @Test (dataProvider = "getCategoryAndProduct")
+    public void testAddingCategoryAndProduct(String category, String product){
+
+        driver.findElement(By.linkText(category)).click();
+        driver.findElement(By.linkText(product)).click();
+        driver.findElement(By.id("add-to-cart-button")).click();
+         driver.findElements(By.xpath("//tbody[@id='line_items']")).size();
+        System.out.println(driver.findElements(By.xpath("//tbody[@id='line_items']")).size());
+    }
+
+    @DataProvider(name="getCategoryAndProduct")
+    public Object[][] getCategoryAndProduct(){
+        return new Object[][]
+                {
+                        {"Bags", "Ruby on Rails Tote"},
+                        {"Mugs","Ruby on Rails Mug"}
+
+                };
+    }
+
 
 
 
