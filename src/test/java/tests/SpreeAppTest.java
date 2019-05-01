@@ -3,14 +3,16 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.*;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-
+@Listeners(CustomListener.class)
 public class SpreeAppTest extends BaseTest{
 
     @Test
@@ -56,6 +58,7 @@ public class SpreeAppTest extends BaseTest{
     public void testcheckOutAsGuestUser(){
         ProductListingPage plp = new ProductListingPage(driver);
         plp.selectCategory_Product("Bags","Ruby on Rails Bag").clickAddToCart().clickCheckOut();
+        Assert.assertEquals(false, true);
     }
 
     @Test
