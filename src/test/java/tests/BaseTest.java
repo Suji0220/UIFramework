@@ -66,9 +66,9 @@ public class BaseTest {
 
     /*    FileUtils.copyFile(source, new File("/Users/vapasi/IdeaProjects/VapasiUiFramework/src/test/java/screenshot/"
                 + screenshotName + ".png"));*/
-
-
         }
+
+
 
     @AfterMethod(alwaysRun=true)
    // @AfterMethod(groups={"smoke"})
